@@ -62,11 +62,14 @@ class FileStorage:
         """Delete obj from __objects """
         if obj:
             # recorrer each key en self.__objects
+            keyobj = "vacio"
             for obj_key in FileStorage.__objects.keys():
                 # tokenizar
                 id_token = obj_key.split('.')
             # comparar si el objet tokenizado en [1] es igual a obj.id
                 if obj.id == id_token[1]:
-                    del FileStorage.__objects[obj_key]
-                    self.save()
-                    break
+                    keyobj = obj_key
+            if keyobj != "vacio":
+                del FileStorage.__objects[keyobj]
+                # el diccionario cambio su tamaño
+                self.save()
