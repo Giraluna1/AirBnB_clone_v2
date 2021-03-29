@@ -14,6 +14,7 @@ class State(BaseModel, Base):
     # For FileStorage
     @property
     def cities(self):
+        """method definition for cities"""
         from models import storage
         # cual instancia de City tien
         city_list = []
