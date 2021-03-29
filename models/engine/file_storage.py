@@ -11,6 +11,15 @@ class FileStorage:
     def all(self, cls=None):
         """Returns a dictionary of models currently in storage"""
         return FileStorage.__objects
+        # else:
+        # for clase in self.__objects.keys():
+        # tokenizar
+        #token = clase.split('.')
+        #cls_name = token[0]
+        # print("\t\tcls_name")
+        # esta cls en el file json?
+        # if cls == cls_name:
+        # Retorne solo lo de esa clase
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
@@ -53,13 +62,13 @@ class FileStorage:
         """Delete obj from __objects """
         if obj:
             # recorrer each key en self.__objects
-            for state_key in self.__objects.keys():
+            for state_key in FileStorage.__objects.keys():
                 # tokenizar
                 id_token = state_key.split('.')
             # comparar si el objet tokenizado en [1] es igual a obj.id
                 if obj.id == id_token[1]:
                     # elimiar
-                    del self.__objects[state_key]
+                    del FileStorage.__objects[state_key]
                     # el diccionario cambio su tamaño
                     self.save()
                     return
