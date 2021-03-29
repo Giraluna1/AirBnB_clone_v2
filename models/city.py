@@ -6,6 +6,6 @@ from sqlalchemy import Column, String, Integer, DateTime, ForeignKey
 
 class City(BaseModel, Base):
     """ The city class, contains state ID and name """
-    tablename = 'cities'
+    __tablename__ = 'cities'
     name = Column(String(128), nullable=True)
     state_id = Column(String(60), ForeignKey('states.id'), nullable=True)
