@@ -66,7 +66,6 @@ class FileStorage:
                 id_token = obj_key.split('.')
             # comparar si el objet tokenizado en [1] es igual a obj.id
                 if obj.id == id_token[1]:
-                    keyobj = obj_key
                     del FileStorage.__objects[obj_key]
                     self.save()
                     break
