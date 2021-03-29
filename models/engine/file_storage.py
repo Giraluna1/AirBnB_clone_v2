@@ -14,8 +14,8 @@ class FileStorage:
         # else:
         # for clase in self.__objects.keys():
         # tokenizar
-        #token = clase.split('.')
-        #cls_name = token[0]
+        # token = clase.split('.')
+        # cls_name = token[0]
         # print("\t\tcls_name")
         # esta cls en el file json?
         # if cls == cls_name:
@@ -62,13 +62,11 @@ class FileStorage:
         """Delete obj from __objects """
         if obj:
             # recorrer each key en self.__objects
-            for state_key in FileStorage.__objects.keys():
+            for obj_key in FileStorage.__objects.keys():
                 # tokenizar
-                id_token = state_key.split('.')
+                id_token = obj_key.split('.')
             # comparar si el objet tokenizado en [1] es igual a obj.id
                 if obj.id == id_token[1]:
-                    # elimiar
-                    del FileStorage.__objects[state_key]
-                    # el diccionario cambio su tamaño
+                    del FileStorage.__objects[obj_key]
                     self.save()
-                    return
+                    break
