@@ -1,12 +1,11 @@
--- Prepares a MySQL server
--- for the project
+-- Prepares a MySQL server for the project
 --Creamos la DB
 
 CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
 
 --crear un nuevo usuario
 
-CREATE USER IF NOT EXISTS 'hbnb_dev'@'localhost' IDENTIFIED BY 'hbhn_dv_pwd';
+CREATE USER IF NOT EXISTS 'hbnb_dev'@'localhost' IDENTIFIED BY 'hbnb_dev_pwd';
 
 -- Darle los provilegios
 
