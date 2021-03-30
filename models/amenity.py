@@ -3,7 +3,6 @@
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, Table, ForeignKey
 from sqlalchemy.orm import relationship
-from models import place_amenity
 from os import getenv
 
 
@@ -13,7 +12,7 @@ class Amenity(BaseModel, Base):
         name = Column(String(128), nullable=False)
         place_amenities = relationship(
             'Place',
-            secondary=place_amenity,
+            secondary='place_amenity',
             back_populates='places',
             cascade='delete'
         )
