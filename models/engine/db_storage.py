@@ -33,6 +33,10 @@ class DBStorage:
             'mysql+mysqldb://{}:{}@{}/{}'.
             format(*credentials), pool_pre_ping=True)
 
+        if getenv('HBNB_ENV') == 'test':
+            # drop all tables
+            pass
+
     def all(self, cls=None):
         """
         This method query on the current database session
