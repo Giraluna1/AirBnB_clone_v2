@@ -33,7 +33,6 @@ class Place(BaseModel, Base):
         amenities = relationship(
             'Amenity',
             secondary=place_amenity,
-            back_populates='place_amenities',
             viewonly=False
         )
 
@@ -66,7 +65,7 @@ class Place(BaseModel, Base):
             obj = []
             from models import storage
             for key, value in storage.all('Amenity').items():
-                if self.amenity_ids in value.id:
+                if value.id in self.amenity_ids:
                     obj.append(value)
             return obj
 
