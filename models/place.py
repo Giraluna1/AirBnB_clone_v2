@@ -63,15 +63,15 @@ class Place(BaseModel, Base):
         @property
         def amenities(self):
             """returns a list of amenities"""
+            obj = []
             from models import storage
-            amenities_list = []
             for key, value in storage.all('Amenity').items():
-                if value.place_amenity.place_id == self.id:
-                    amenities_list.append(value)
-            return amenities_list
+                if self.amenity_ids in value.id:
+                    obj.append(value)
+            return obj
 
         @amenities.setter
         def amenities(self, amenities):
             """return"""
-            if place_amenity.place_id in amenities:
-                self.amenity_ids.append(place_amenity.amenity_id)
+            if amenities.__class__.__name__ == 'Amenity':
+                self.amenity_ids.append(amenities)
