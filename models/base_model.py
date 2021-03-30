@@ -13,9 +13,9 @@ class BaseModel:
 
     id = Column(String(60), primary_key=True, nullable=False)
     created_at = Column(
-        DateTime, default=datetime.utcnow, nullable=False)
+        DateTime, default=datetime.utcnow(), nullable=False)
     updated_at = Column(
-        DateTime, default=datetime.utcnow, nullable=False)
+        DateTime, default=datetime.utcnow(), nullable=False)
 
     def __init__(self, *args, **kwargs):
         """Instatntiates a new model"""
@@ -66,7 +66,7 @@ class BaseModel:
         dictionary['updated_at'] = self.updated_at.isoformat()
         # preguntar si la key esta en la tabla ?
         if '_sa_instance_state' in dictionary:
-            dictionary.pop['_sa_instance_state']
+            dictionary.pop('_sa_instance_state')
         return dictionary
 
     def delete(self):
