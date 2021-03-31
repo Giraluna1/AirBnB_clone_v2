@@ -51,6 +51,10 @@ class test_basemodel(unittest.TestCase):
         except:
             pass
 
+    @unittest.skipIf(
+        os.getenv('HBNB_TYPE_STORAGE') == 'db',
+        "Environment Database"
+    )
     def test_default(self):
         """ """
         i = self.value()
