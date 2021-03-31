@@ -27,6 +27,10 @@ class test_basemodel(unittest.TestCase):
         self.name = 'BaseModel'
         self.value = BaseModel
 
+    @unittest.skipIf(
+        os.getenv('HBNB_TYPE_STORAGE') == 'db',
+        "Environment Database"
+    )
     def setUp(self):
         """Clean code after each test
         """
@@ -34,6 +38,10 @@ class test_basemodel(unittest.TestCase):
             os.remove("file.json")
         FileStorage.FileStorage__objects = {}
 
+    @unittest.skipIf(
+        os.getenv('HBNB_TYPE_STORAGE') == 'db',
+        "Environment Database"
+    )
     def tearDown(self):
         """After run the Test clase remove the instance create
         for the test
@@ -63,6 +71,10 @@ class test_basemodel(unittest.TestCase):
         with self.assertRaises(TypeError):
             new = BaseModel(**copy)
 
+    @unittest.skipIf(
+        os.getenv('HBNB_TYPE_STORAGE') == 'db',
+        "Environment Database"
+    )
     def test_save(self):
         """ Testing save """
         i = self.value()
@@ -78,6 +90,10 @@ class test_basemodel(unittest.TestCase):
         self.assertEqual(str(i), '[{}] ({}) {}'.format(self.name, i.id,
                                                        i.__dict__))
 
+    @unittest.skipIf(
+        os.getenv('HBNB_TYPE_STORAGE') == 'db',
+        "Environment Database"
+    )
     def test_todict(self):
         """ """
         i = self.value()
