@@ -8,7 +8,7 @@ mkdir -p /data/web_static/shared/
 mkdir -p /data/web_static/releases/test/
 echo " <h1 align="center"> Cool You Nginx configuration is ready 🦾</h1> " > /data/web_static/releases/test/index.html
 ln -s -f /data/web_static/releases/test/ /data/web_static/current
-chown -R ubuntu[:ubuntu] /data/
+chown -R ubuntu:ubuntu /data/
 # Install Nginx in my server
 apt-get -y install nginx
 # config hbnb_static as alias
