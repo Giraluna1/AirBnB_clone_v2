@@ -8,11 +8,13 @@ from os.path import getsize
 
 
 def do_pack():
+
+
 """ is Fabric script """
 
-    date = datetime.datetime.now()
-    date = date.strftime("%Y%m%d%H%M%S")
-    try:
+ date = datetime.datetime.now()
+  date = date.strftime("%Y%m%d%H%M%S")
+   try:
         with hide('running', 'stdout'):
             local('mkdir -p versions')
         # create the file
