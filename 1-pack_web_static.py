@@ -8,7 +8,8 @@ from os.path import getsize
 
 
 def do_pack():
-    local('mkdir -p versions')
+    with hide('running', 'stdout'):
+        local('mkdir -p versions')
     # create archive
     date = datetime.datetime.now()
     date = date.strftime("%Y%m%d%H%M%S")
