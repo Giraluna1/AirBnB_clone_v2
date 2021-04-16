@@ -8,14 +8,18 @@ from os.path import getsize
 
 
 def do_pack():
-    local('mkdir -p versions')
-    # create archive
+""" is Fabric script """
+
     date = datetime.datetime.now()
     date = date.strftime("%Y%m%d%H%M%S")
     try:
+        with hide('running', 'stdout'):
+            local('mkdir -p versions')
+        # create the file
         local('tar -cvzf versions/web_static_{}.tgz web_static'.format(date))
         total_size = getsize('./versions/web_static_{}.tgz'.format(date))
-        print('web_static packed: versions/web_static_{}.tgz -> {}Bytes'.format(date, total_size))
+        print('web_static packed: versions/web_static_{}.tgz -> {}Bytes'.
+              format(date, total_size))
         return ('./versions/web_static_{}.tgz'.format(date))
     except Exception:
         return None
