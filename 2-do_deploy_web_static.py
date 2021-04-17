@@ -5,7 +5,8 @@ from fabric.api import local, run, put, env
 import datetime
 from os.path import getsize
 
-env.hosts = ['34.75.65.42']
+env.hosts = ['34.75.65.42', '34.227.197.137']
+
 
 def do_pack():
     """ This script comprime .tgz """
@@ -22,6 +23,7 @@ def do_pack():
         return ('./versions/web_static_{}.tgz'.format(date))
     except:
         return None
+
 
 def do_deploy(archive_path):
     """ Distributes an archive to  your web serves """
@@ -47,4 +49,3 @@ def do_deploy(archive_path):
             format(dir_name))
     except:
         return False
-
