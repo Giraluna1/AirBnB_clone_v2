@@ -33,13 +33,14 @@ def do_deploy(archive_path):
         put(archive_path, '/tmp/')
         # Uncompress
         dir_name = archive_path[9:-4]
+        path_releases = '/data/web_static/releases/'
         run('mkdir -p /data/web_static/releases/{}/'.format(dir_name))
         run('tar -xzf /tmp/{}.tgz -C /data/web_static/releases/{}/'.
             format(dir_name, dir_name))
         # Delete the archive
         run('rm /tmp/{}.tgz'.format(dir_name))
-        run('mv /data/web_static/releases/{}/web_static/* /data/web_static/releases/{}/'.
-            format(dir_name, dir_name))
+        run('mv /data/web_static/releases/{}/web_static/* {}{}/'.
+            format(dir_name, path_releases, dir_name))
         run('rm -rf /data/web_static/releases/{}/web_static'.
             format(dir_name))
         # Delete the symbolic link
