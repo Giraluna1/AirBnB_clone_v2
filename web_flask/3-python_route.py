@@ -24,6 +24,7 @@ def home3(text=None):
     return "C {}".format(text)
 
 
+@app.route("/python")
 @app.route('/python/(<text>)')
 def home4(text='is cool'):
     "This method pass argument by default"
