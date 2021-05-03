@@ -40,7 +40,8 @@ def home5(n):
 
 @app.route('/number_template/<int:n>')
 def home6(n):
-    """ This methos display a HTML page if n is int
+    """
+    This methos display a HTML page if n is int
     - H1 tag: “Number: n” inside the tag BODY
     """
     return render_template("5-number.html", n=n)
@@ -48,9 +49,9 @@ def home6(n):
 
 @app.route('/number_odd_or_even/<int:n>')
 def home7(n):
-    """ display a HTML page only if n is an integer
+    """
+    display a HTML page only if n is an integer
     - H1 tag: “Number: n is even|odd” inside the tag BODY
-
     """
     return render_template("6-number_odd_or_even.html", n=n)
 
