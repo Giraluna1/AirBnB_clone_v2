@@ -25,7 +25,7 @@ def home3(text=None):
 
 
 @app.route('/python')
-@app.route('/python/(<text>)')
+@app.route('/python/<text>')
 def home4(text="is cool"):
     "This method pass argument by default"
     text = text.replace("_", " ")
