@@ -24,7 +24,7 @@ def home3(text=None):
     return "C {}".format(text)
 
 
-@app.route("/python")
+@app.route('/python')
 @app.route('/python/(<text>)')
 def home4(text="is cool"):
     "This method pass argument by default"
@@ -33,4 +33,4 @@ def home4(text="is cool"):
 
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=5000)
+    app.run(host="localhost", port=5000, debug=True)
