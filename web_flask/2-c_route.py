@@ -20,6 +20,7 @@ def home2():
 @app.route('/c/<text>')
 def home3(text=None):
     "This methos pass an argument"
+    text = text.replace("_", " ")
     return "C {}".format(text)
 
 
