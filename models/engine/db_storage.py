@@ -47,13 +47,12 @@ class DBStorage:
             'State': State, 'City': City, 'Amenity': Amenity,
             'Review': Review
         }
-        # self.__session = session(self.__engine)
-        self.__session = Session(self.__engine)
+
         result = {}
         if cls:
             if type(cls) is not str:
                 cls = cls.__name__
-            query = type(self).__session.query(classes[cls]).all()
+            query = self.__session.query(classes[cls]).all()
             for obj in query:
                 key = '{}.{}'.format(obj.__class__.__name__, obj.id)
                 result[key] = obj
@@ -87,8 +86,8 @@ class DBStorage:
         # create a new session
         session_factory = sessionmaker(
             bind=self.__engine, expire_on_commit=False)
-        Session = scoped_session(session_factory)
-        self.__session = Session()
+        #Session = scoped_session(session_factory)
+        self.__session = scoped_session(session_factory)
 
     def close(self):
         """ Close session """
