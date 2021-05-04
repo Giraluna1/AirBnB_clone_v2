@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ This script starts a Flask web application """
 from flask import Flask, render_template
 
@@ -51,4 +52,4 @@ def home7(n):
 
 
 if __name__ == '__main__':
-    app.run(host="localhost", port=5000, debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)
