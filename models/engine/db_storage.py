@@ -51,7 +51,9 @@ class DBStorage:
         self.__session = Session(self.__engine)
         result = {}
         if cls:
-            query = self.__session.query(classes[cls]).all()
+            if type(cls) is not str:
+                cls = cls.__name__
+            query = type(self).__session.query(classes[cls]).all()
             for obj in query:
                 key = '{}.{}'.format(obj.__class__.__name__, obj.id)
                 result[key] = obj
